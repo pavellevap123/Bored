@@ -10,22 +10,24 @@ import RealmSwift
 
 class TasksTableViewController: UITableViewController {
     
-    let realm = (UIApplication.shared.delegate as! AppDelegate).realm
+    let realm = (UIApplication.shared.delegate as! AppDelegate).realm!
     var tasks: Results<Tasks>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks = realm!.objects(Tasks.self)
+        
+        tasks = realm.objects(Tasks.self)
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        
         self.dismiss(animated: true)
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return tasks.count
     }
     
@@ -40,9 +42,15 @@ class TasksTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        try! realm!.write {
-            realm?.delete(tasks[indexPath.row])
+        
+        do {
+            try realm.write {
+                realm.delete(tasks[indexPath.row])
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
+        
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

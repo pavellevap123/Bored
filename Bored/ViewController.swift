@@ -13,16 +13,17 @@ import RealmSwift
 class ViewController: UIViewController {
     
     var toolBar = UIToolbar()
-    var picker  = UIPickerView()
-    var types = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+    let picker  = UIPickerView()
+    let requstTypes = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+    let types = ["Education", "Recreational", "Social", "DIY", "Charity", "Cooking", "Relaxation", "Music", "Busywork"]
     var urlString = "https://www.boredapi.com/api/activity/"
-    let realm = (UIApplication.shared.delegate as! AppDelegate).realm
+    let realm = (UIApplication.shared.delegate as! AppDelegate).realm!
     
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var typeButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         picker.delegate = self
         picker.dataSource = self
@@ -30,25 +31,26 @@ class ViewController: UIViewController {
         activityIndicator.isHidden = true
     }
     
-    private func configurePickerView() {
-        picker.autoresizingMask = .flexibleWidth
-        picker.contentMode = .center
-        picker.backgroundColor = UIColor(named: "MyColor")
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 250, width: UIScreen.main.bounds.size.width, height: 250)
-        
-        toolBar = UIToolbar(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 250, width: UIScreen.main.bounds.size.width, height: 50))
-        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))
-        toolBar.setItems([flexButton, doneButton], animated: true)
-        toolBar.sizeToFit()
-    }
-    
     @IBAction func typeButtonPressed(_ sender: UIButton) {
         
         UIView.transition(with: view, duration: 0.25, options: .transitionCrossDissolve, animations: {
             self.view.addSubview(self.picker)
             self.view.addSubview(self.toolBar)
-        }, completion: nil)
+        })
+    }
+    
+    @IBAction func addToLibraryPressed(_ sender: UIButton) {
+        
+        SPAlert.present(title: "Added to Library", preset: .done)
+        let task = Tasks()
+        task.title = label.text!
+        do {
+            try realm.write {
+                realm.add(task)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     @IBAction func makeBasicRequest(_ sender: UIButton) {
@@ -56,29 +58,49 @@ class ViewController: UIViewController {
         request(urlString: urlString)
     }
     
+    private func configurePickerView() {
+        
+        picker.autoresizingMask = .flexibleWidth
+        picker.contentMode = .center
+        picker.backgroundColor = UIColor(named: "MyColor")
+        picker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 250, width: UIScreen.main.bounds.size.width, height: 250)
+        
+        toolBar.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 250, width: UIScreen.main.bounds.size.width, height: 50)
+        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonPressed))
+        toolBar.setItems([flexButton, doneButton], animated: true)
+        toolBar.sizeToFit()
+    }
+    
     private func request(urlString: String) {
         showActivityIndicator()
         AF.request(urlString).responseJSON { response in
-            print(urlString)
-            let decoder = JSONDecoder()
-            do {
-                let boredObj = try decoder.decode(Bored.self, from: response.data!)
-                self.label.text = boredObj.activity
-                self.hideActivityIndicator()
-            } catch let error as NSError {
-                print(error)
+            if let data =  response.data {
+                let decoder = JSONDecoder()
+                do {
+                    let boredObj = try decoder.decode(Bored.self, from: data)
+                    self.label.text = boredObj.activity
+                    self.hideActivityIndicator()
+                } catch let error as NSError {
+                    print(error)
+                    self.hideActivityIndicator()
+                    self.label.text = "Error occured. Please, try later."
+                }
             }
         }
-        
     }
+    
     func showActivityIndicator() {
+        
         DispatchQueue.main.async {
             self.activityIndicator.isHidden = false
             self.activityIndicator.startAnimating()
             self.label.isHidden = true
         }
     }
+    
     func hideActivityIndicator() {
+        
         DispatchQueue.main.async {
             self.activityIndicator.isHidden = true
             self.activityIndicator.stopAnimating()
@@ -86,24 +108,15 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func onDoneButtonTapped() {
+    @objc func onDoneButtonPressed() {
         
-        let newUrlString = urlString + "?type=" + types[picker.selectedRow(inComponent: 0)]
+        let newUrlString = urlString + "?type=" + requstTypes[picker.selectedRow(inComponent: 0)]
         request(urlString: newUrlString)
         
         UIView.transition(with: view, duration: 0.25, options: .transitionCrossDissolve, animations: {
             self.toolBar.removeFromSuperview()
             self.picker.removeFromSuperview()
-        }, completion: nil)
-        
-    }
-    @IBAction func addToLibraryPressed(_ sender: UIButton) {
-        SPAlert.present(title: "Added to Library", preset: .done)
-        let task = Tasks()
-        task.title = label.text!
-        try! realm!.write {
-            realm!.add(task)
-        }
+        })
     }
 }
 
