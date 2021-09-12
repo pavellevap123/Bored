@@ -3,27 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77B0B3D22B0DA12893F58BF8 /* Pods_Bored.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24768575C502FB32506CADC9 /* Pods_Bored.framework */; };
+		BA071D0926EE574C00317AB1 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA071D0826EE574C00317AB1 /* TasksTableViewController.swift */; };
 		BA08DE8D26ECA73700F2FA9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08DE8C26ECA73700F2FA9B /* AppDelegate.swift */; };
 		BA08DE8F26ECA73700F2FA9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08DE8E26ECA73700F2FA9B /* SceneDelegate.swift */; };
 		BA08DE9126ECA73700F2FA9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08DE9026ECA73700F2FA9B /* ViewController.swift */; };
 		BA08DE9426ECA73700F2FA9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA08DE9226ECA73700F2FA9B /* Main.storyboard */; };
-		BA08DE9626ECA73900F2FA9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA08DE9526ECA73900F2FA9B /* Assets.xcassets */; };
 		BA08DE9926ECA73900F2FA9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA08DE9726ECA73900F2FA9B /* LaunchScreen.storyboard */; };
+		BA08DEA126ED237800F2FA9B /* BoredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08DEA026ED237800F2FA9B /* BoredModel.swift */; };
+		BA08DEA326ED40E100F2FA9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA08DEA226ED40E100F2FA9B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24768575C502FB32506CADC9 /* Pods_Bored.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bored.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		771B8C59D0B744F506EEE9B0 /* Pods-Bored.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bored.release.xcconfig"; path = "Target Support Files/Pods-Bored/Pods-Bored.release.xcconfig"; sourceTree = "<group>"; };
+		BA071D0826EE574C00317AB1 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		BA08DE8926ECA73700F2FA9B /* Bored.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bored.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA08DE8C26ECA73700F2FA9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA08DE8E26ECA73700F2FA9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BA08DE9026ECA73700F2FA9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA08DE9326ECA73700F2FA9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BA08DE9526ECA73900F2FA9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA08DE9826ECA73900F2FA9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA08DE9A26ECA73900F2FA9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA08DEA026ED237800F2FA9B /* BoredModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredModel.swift; sourceTree = "<group>"; };
+		BA08DEA226ED40E100F2FA9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8EA1797E8599356B8CA42CA /* Pods-Bored.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bored.debug.xcconfig"; path = "Target Support Files/Pods-Bored/Pods-Bored.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B0B3D22B0DA12893F58BF8 /* Pods_Bored.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2369A796722D166B6F0DE67F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24768575C502FB32506CADC9 /* Pods_Bored.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA08DE8026ECA73700F2FA9B = {
 			isa = PBXGroup;
 			children = (
 				BA08DE8B26ECA73700F2FA9B /* Bored */,
 				BA08DE8A26ECA73700F2FA9B /* Products */,
+				F3AE2F94E64495A086B395FB /* Pods */,
+				2369A796722D166B6F0DE67F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +78,23 @@
 				BA08DE8C26ECA73700F2FA9B /* AppDelegate.swift */,
 				BA08DE8E26ECA73700F2FA9B /* SceneDelegate.swift */,
 				BA08DE9026ECA73700F2FA9B /* ViewController.swift */,
+				BA071D0826EE574C00317AB1 /* TasksTableViewController.swift */,
+				BA08DEA026ED237800F2FA9B /* BoredModel.swift */,
 				BA08DE9226ECA73700F2FA9B /* Main.storyboard */,
-				BA08DE9526ECA73900F2FA9B /* Assets.xcassets */,
 				BA08DE9726ECA73900F2FA9B /* LaunchScreen.storyboard */,
+				BA08DEA226ED40E100F2FA9B /* Assets.xcassets */,
 				BA08DE9A26ECA73900F2FA9B /* Info.plist */,
 			);
 			path = Bored;
+			sourceTree = "<group>";
+		};
+		F3AE2F94E64495A086B395FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8EA1797E8599356B8CA42CA /* Pods-Bored.debug.xcconfig */,
+				771B8C59D0B744F506EEE9B0 /* Pods-Bored.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA08DE9D26ECA73900F2FA9B /* Build configuration list for PBXNativeTarget "Bored" */;
 			buildPhases = (
+				98BFF4C65537D886CB62D1D1 /* [CP] Check Pods Manifest.lock */,
 				BA08DE8526ECA73700F2FA9B /* Sources */,
 				BA08DE8626ECA73700F2FA9B /* Frameworks */,
 				BA08DE8726ECA73700F2FA9B /* Resources */,
+				F7145D724EEE59F740C7F392 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,18 +157,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA08DE9926ECA73900F2FA9B /* LaunchScreen.storyboard in Resources */,
-				BA08DE9626ECA73900F2FA9B /* Assets.xcassets in Resources */,
+				BA08DEA326ED40E100F2FA9B /* Assets.xcassets in Resources */,
 				BA08DE9426ECA73700F2FA9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		98BFF4C65537D886CB62D1D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bored-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7145D724EEE59F740C7F392 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bored/Pods-Bored-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bored/Pods-Bored-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bored/Pods-Bored-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BA08DE8526ECA73700F2FA9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA08DEA126ED237800F2FA9B /* BoredModel.swift in Sources */,
+				BA071D0926EE574C00317AB1 /* TasksTableViewController.swift in Sources */,
 				BA08DE9126ECA73700F2FA9B /* ViewController.swift in Sources */,
 				BA08DE8D26ECA73700F2FA9B /* AppDelegate.swift in Sources */,
 				BA08DE8F26ECA73700F2FA9B /* SceneDelegate.swift in Sources */,
@@ -283,6 +359,7 @@
 		};
 		BA08DE9E26ECA73900F2FA9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8EA1797E8599356B8CA42CA /* Pods-Bored.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +379,7 @@
 		};
 		BA08DE9F26ECA73900F2FA9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 771B8C59D0B744F506EEE9B0 /* Pods-Bored.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
